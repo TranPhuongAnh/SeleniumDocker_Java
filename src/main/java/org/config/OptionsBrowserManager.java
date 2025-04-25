@@ -45,6 +45,8 @@ public class OptionsBrowserManager {
         options.setAutomaticInspection(false);
         options.setAutomaticProfiling(false);
         options.setUseTechnologyPreview(true);
+        options.setBrowserVersion("latest");
+        options.setCapability("windowSize", "1920x1080");
 
         return options;
     }
