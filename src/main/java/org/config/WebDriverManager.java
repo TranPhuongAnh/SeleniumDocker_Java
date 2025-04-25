@@ -72,12 +72,12 @@ public class WebDriverManager {
         String hub_host = System.getenv().getOrDefault("HUB_HOST", "localhost");
         String grid_url = "http://" + hub_host + ":4444/wd/hub";
 
-        boolean status = isGridAvailable(hub_host);
-        System.out.println("Kết nối tới grid docker: " + status);
+//        boolean status = isGridAvailable(hub_host);
+//        System.out.println("Kết nối tới grid docker: " + status);
 
         // 1. Kiểm tra kết nối đến Grid
         if (!isGridAvailable(hub_host)) {
-            return null;
+            return url;
         } else {
             try {
                 System.out.println("Đang kết nối tới Selenium Grid Docker tại: " + grid_url + "...");
@@ -86,7 +86,7 @@ public class WebDriverManager {
 
             } catch (MalformedURLException e) {
                 System.out.println("URL của Selenium Grid không hợp lệ: " + e.getMessage());
-                return null;
+                return url;
             }
         }
     }
@@ -115,9 +115,7 @@ public class WebDriverManager {
 
             String body = response.toString();
 
-            if (body.contains("\"ready\":true")){
-                return true;
-            } else return false;
+            return  body.contains("\"ready\": true");
 
         } catch (Exception e){
             return false;

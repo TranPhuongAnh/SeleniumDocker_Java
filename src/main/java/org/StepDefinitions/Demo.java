@@ -16,7 +16,6 @@ public class Demo extends WebDriverManager {
     WebDriver driver = null;
     ConfigFileReader config = new ConfigFileReader();
     CommonMethod common = new CommonMethod(getDriver());
-    ExcelHelpers excelHelpers = new ExcelHelpers();
 
 
     @Given("open browser and url")

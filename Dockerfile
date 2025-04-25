@@ -1,4 +1,4 @@
-FROM openjdk:22-slim
+FROM maven:3.9.8-eclipse-temurin-22-alpine
 
 # Tạo thư mục làm việc
 WORKDIR /app
@@ -6,10 +6,16 @@ WORKDIR /app
 # Copy mã nguồn và file pom.xml vào container
 COPY . /app
 
-# Cài đặt Maven nếu chưa có
-RUN apt-get update && \
-    apt-get install -y maven && \
-    mvn clean install
+RUN mvn clean install
+
+## Copy source code vào container
+#COPY src/main/java /app/src
+#
+## Biến ENV để lưu tên file main cần chạy
+#ENV MAIN_CLASS=org.example.Main
+#
+## Compile Java source
+#RUN javac src/org/example/Main.java
 
 # Chạy ứng dụng
-CMD ["java", "-jar", "target/selenium-java-tests.jar"]
+CMD ["java", "-cp", "src", "org.example.Main"]

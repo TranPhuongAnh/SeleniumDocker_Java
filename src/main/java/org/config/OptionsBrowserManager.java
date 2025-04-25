@@ -10,7 +10,7 @@ public class OptionsBrowserManager {
     public ChromeOptions chrome_options() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
-        options.addArguments("--headless=new");
+//        options.addArguments("--headless");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--autoplay-policy=no-user-gesture-required"); // Tắt chính sách autoplay
         options.addArguments("--window-size=1920,1080");
@@ -21,8 +21,8 @@ public class OptionsBrowserManager {
     public FirefoxOptions firefox_options(){
         FirefoxOptions options = new FirefoxOptions();
         options.addArguments("--no-sandbox");
-        options.addArguments("--headless=new");
-        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("--headless");
+//        options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--autoplay-policy=no-user-gesture-required"); // Tắt chính sách autoplay
         options.addArguments("--window-size=1920,1080");
 
@@ -32,7 +32,7 @@ public class OptionsBrowserManager {
     public EdgeOptions edge_options(){
         EdgeOptions options = new EdgeOptions();
         options.addArguments("--no-sandbox");
-        options.addArguments("--headless=new");
+//        options.addArguments("--headless");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--autoplay-policy=no-user-gesture-required"); // Tắt chính sách autoplay
         options.addArguments("--window-size=1920,1080");
